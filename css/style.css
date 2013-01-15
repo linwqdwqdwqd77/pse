@@ -1,0 +1,991 @@
+/*--- BASE ---*/
+html {height: 100%; font-size: 85%; overflow-y: scroll; -webkit-text-size-adjust: 100%} /*--- Force scrollbar in non-IE and Remove iOS text size adjust without disabling user zoom ---*/
+body {margin: 0; min-height: 100%; -webkit-font-smoothing:antialiased; font-smoothing:antialiased; text-rendering:optimizeLegibility; } /*--- Improve default text rendering, handling of kerning pairs and ligatures ---*/
+
+/*--- HTML5 DECLARATIONS ---*/
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, dialog {display: block}
+audio[controls],canvas,video {display: inline-block; *display: inline; zoom: 1}
+
+/*--- DEFAULT FONT SETTINGS ---*/
+/*--- 16px base font size with 150% (24px) friendly, unitless line height and margin for vertical rhythm ---*/
+/*--- Font-size percentage is based on 16px browser default size ---*/
+body, button, input, select, textarea {font: 100%/1.5 "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif; *font-size: 1em; color: #333} /*--- IE7 and older can't resize px based text ---*/
+p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldset, menu, img {margin: 0 0 1.5em; padding: 0}
+
+/*--- TYPOGRAPHY ---*/
+h1, h2, h3, h4, h5, h6 {font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;color:#222;text-shadow:1px 1px 1px rgba(0,0,0,.10)}
+h1 {margin: 0; font-size: 1.5em; line-height: 1em; margin-bottom: 1em}
+h2 {margin: 0; font-size: 1.3125 em; line-height: 1.1428571428571428571428571428571em; margin-bottom: 0.5em;
+}
+.projects-section h2 {visibility:hidden;display:none;}
+
+.page-pse #content .g3 h2 {font-size: 1.325em;margin-bottom: 10px; }
+
+.projects-section .headwrap h2 {visibility:visible !important;display:block;}
+
+h2, h4, h5, h6 {margin: 0; font-size: 1.125em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 1.3333333333333333333333333333333em}
+p, ul, blockquote, pre, td, th, label {margin: 0; font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em} /*--- 16px / 24px ---*/
+small, p.small {margin: 0; font-size: 0.875em; line-height: 1.7142857142857142857142857142857em; margin-bottom: 1.7142857142857142857142857142857em} /*--- 14px / 24px ---*/
+
+/*--- CODE ---*/
+pre {white-space: pre; white-space: pre-wrap; word-wrap: break-word} /*--- Allow line wrapping of the 'pre' ---*/
+pre, code, kbd, samp {font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em; font-family: Menlo, Consolas, 'DejaVu Sans Mono', Monaco, monospace}
+
+/*--- TABLES ---*/
+table {border-collapse: collapse; border-spacing: 0; margin-bottom: 1.5em}
+th {text-align: left}
+tr, th, td {padding-right: 1.5em; border-bottom: 0 solid #333}
+
+/*--- FORMS ---*/
+form {margin: 0}
+fieldset {border: 0;padding: 0}
+textarea {overflow: auto; vertical-align: top}
+legend {*margin-left: -.75em}
+button, input, select, textarea {vertical-align: baseline; *vertical-align: middle} /*--- IE7 and older ---*/
+button, input {line-height: normal; *overflow: visible}
+button, input[type="button"], input[type="reset"], input[type="submit"] {cursor: pointer;-webkit-appearance: button}
+input[type="checkbox"], input[type="radio"] {box-sizing: border-box}
+input[type="search"] {-webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box;     box-sizing: content-box}
+input[type="search"]::-webkit-search-decoration {-webkit-appearance: none}
+button::-moz-focus-inner, input::-moz-focus-inner {border: 0; padding: 0}
+
+.location .form-item input {
+  display: block;
+  width: 95%;
+  margin-bottom: 5px;
+}
+
+#login-links {display: inline;
+  }
+#login-message {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+a#register-link.login-link, a#login-link.login-link {background:#4298A2;border:1px solid #e6e4e2;border-bottom-color:#bbb;border-right-color:#bbb;color:#000;font-size:1em;font-weight:500;padding:0.5em;margin:0em 0.5em 0 0;overflow:hidden;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;color:#fff; letter-spacing: 1px;
+}
+a#register-link.login-link.It.active, a:hover#login-link.login-link {background:#027583;border:1px solid #e1dedb;border-bottom-color:#aaa;color:#fff;border-right-color:#aaa;cursor:pointer;}
+
+/* @group Form Styles */
+
+/*--- Form styling elements as a starter base and a few other elements for tidying ---*/
+
+/* Fieldsets */
+fieldset {
+  border: solid 1px #e6e4e2;
+  margin: 1.2em 0;
+  padding: 0 0 1em 0.5em;
+  position: relative;
+}
+.fieldset-wrapper {
+  padding: 2.4em 1em 1em 1em;
+}
+.fieldset-description {
+  padding: 1em 0;
+}
+html.js fieldset.collapsed {
+  border: solid 1px #e6e4e2;
+  height: 1.5em;
+}
+legend {
+  display: block;
+  color: #999;
+  font-weight: bold;
+  font-size: 0.923em;
+  letter-spacing: 0.15em;
+  line-height: normal;
+}
+legend a.fieldset-title {
+  color: #999;
+}
+.js fieldset.collapsible legend a {
+  padding-left: 20px;
+  -moz-transition: color 0.3s linear;
+  -webkit-transition: color 0.3s linear;
+  transition: color 0.3s linear;
+}
+.js fieldset.collapsible legend a:hover,
+.js fieldset.collapsible legend a:focus,
+.js fieldset.collapsible legend a:active {
+  color: #444;
+}
+.js fieldset.collapsed legend a {
+ }
+
+/* Labels */
+label {
+  cursor: pointer;
+  font-weight: 500;
+}
+.form-item label {
+  display: block;
+  font-size: 1.077em;
+  margin-bottom: 0.2em;
+  margin-left: 3px;
+}
+.form-item .form-item label {
+  display: inline;
+  font-size: 1em;
+}
+table label,
+.form-item label.option {
+  display: inline;
+  font-size: 1em;
+  font-weight: normal;
+}
+select {
+  margin-bottom: 3px;
+  padding: 2px;
+}
+
+/* Wrappers */
+.form-item {
+  margin: 1.4em 0;
+}
+.fieldset-wrapper .form-item:first-child {
+  margin-top: 0.4em;
+}
+.form-item .form-item {
+  margin: 0.5em 0;
+}
+.form-type-checkbox,
+.form-type-radio {
+  margin: 1em 0;
+}
+.form-actions {
+  margin-top: 1em;
+  padding: 1em 0;
+}
+.filter-wrapper .fieldset-wrapper {
+  padding: 0;
+}
+/* Elements */
+input, select, textarea, button {
+  font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+input, textarea {
+  line-height: 1.3em;
+}
+textarea.form-textarea, textarea {
+  background-color: #fff;
+  border: solid 2px #e6e4de;
+  padding: 0.5em;
+  -moz-border-radius: 3px 3px 0 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-top-left-radius: 3px;
+  border-radius: 3px 3px 0 0;
+}
+input.form-text,
+input[type=text],
+select[multiple=multiple] {
+  background-color: #fff;
+  border: solid 2px #e6e4de;
+  padding: 4px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+select {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+button,
+input[type=submit],
+input.form-submit,
+.form-actions a,
+.form-actions a:visited,
+.button, a.button, a.button:visited {
+  background: #4298A2;
+  border: 1px solid #e6e4e2;
+  border-bottom-color: #bbb;
+  border-right-color: #bbb;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 500;
+  padding: 0.5em;
+  margin: 0.5em 0.5em 0 0;
+  overflow: hidden;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  letter-spacing:1px
+}
+button:hover,
+input[type=submit]:hover,
+input.form-submit:hover,
+.form-actions a:hover,
+.form-actions a:focus,
+.form-actions a:active,
+.button:hover,
+a.button:hover,
+a.button:focus,
+a.button:active {
+  background: #027583;
+  border: 1px solid #e1dedb;
+  border-bottom-color: #aaa;
+  border-right-color: #aaa;
+  color: #fff;
+  cursor: pointer;
+  letter-spacing:1px;
+}
+textarea:focus,
+input[type=password]:focus,
+input[type=search]:focus,
+input[type=text]:focus,
+select[multiple=multiple]:focus {
+  outline: 0;
+  -moz-box-shadow: 0 0 10px rgba(169,169,169,0.5);
+  -webkit-box-shadow: 0 0 10px rgba(169,169,169,0.5);
+  border-color: rgba(213,213,213,0.7);
+}
+/* css only hover tooltip helpers for projects form */
+.helper{padding:5px 15px 5px 45px;background:#f7f7f7 url("../images/helper.png") no-repeat 12px center;background:;-moz-border-radius:5px;-khtml-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;margin-top:8px;margin-bottom:2px;margin-right: 20px;
+        max-width:80px;
+
+font-size: 13px;
+margin-right:150px;
+        float: right;
+        display: block;
+        clear: both;
+}
+a.tooltip {
+                        border-bottom: 1px dotted #000;
+                        color: #000;
+                        outline: none;
+                        cursor: help;
+                        text-decoration: none;
+                        position: relative;
+                }
+                a.tooltip span {
+                        position: absolute;
+                        top: 2em;
+                        left: 0.5em;
+                        width: 200px;
+                        margin-left: -199em;
+                        opacity: 0;
+                        text-decoration: none !important;
+
+                        border-radius: 5px;
+                        -moz-border-radius: 5px;
+                        -webkit-border-radius: 5px;
+
+                        box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+                        -webkit-box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+                        -moz-box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+
+                        -moz-transition-property: opacity;
+                        -moz-transition-duration: 1s;
+                        -webkit-transition-property: opacity;
+                        -webkit-transition-duration: 1s;
+                        -o-transition-property: opacity;
+                        -o-transition-duration: 1s;
+                }
+                a.tooltip:hover {text-decoration:none;}
+                a.tooltip:hover span {
+                        z-index: 99;
+                        margin-left: 0;
+                        opacity: 1;
+                text-decoration:none;}
+                        a.tooltip em {
+                        font-weight: 700;
+                        display: block;
+                        padding: 0.2em 0 0.6em 0;
+                }
+                .pop { padding: 0.8em 1em; }
+                .custom { padding: 0.5em 0.8em 0.8em 2em; }
+                * html a:hover { background: transparent; }
+                .pop {background: #FFA; border: 1px solid #FFAD33; }
+
+/* Misc */
+.description {
+  color: #777;
+  font-size: 0.923em;
+  line-height: 1.5;
+}
+.form-item .description {
+  margin-top: 0.4em;
+  padding-left: 0.4em;
+}
+.form-required {
+  color: #fda61f;
+  font: bold 1em Arial;
+}
+
+/* Inline containers */
+.container-inline .form-item label {
+  display: inline-block;
+}
+.container-inline .form-submit {
+  font-size: 0.923em;
+  line-height: 1.5em;
+  margin: 0 0.3em 0 0;
+  padding: 0.2em 1em;
+}
+.container-inline .form-actions {
+  padding: 0;
+}
+
+/* Autocomplete throbber */
+html.js input.form-autocomplete {
+  background-position: 99% 6px; /* LTR */
+}
+html.js input.throbbing {
+  background-position: 99% -18px; /* LTR */
+}
+
+/* Vertical tabs */
+.vertical-tabs fieldset.vertical-tabs-pane {
+  padding: 0;
+}
+.vertical-tabs .fieldset-wrapper {
+  padding: 1em 0.5em;
+}
+div.vertical-tabs,
+div.vertical-tabs ul.vertical-tabs-list,
+div.vertical-tabs ul.vertical-tabs-list li {
+  border-color: #e6e4e2;
+}
+.vertical-tabs ul.vertical-tabs-list li {
+  background-color: #efedea;
+}
+.vertical-tabs ul.vertical-tabs-list li a {
+  -moz-transition: none;
+  -webkit-transition: none;
+  transition: none;
+}
+.vertical-tabs ul.vertical-tabs-list li a:hover,
+.vertical-tabs ul.vertical-tabs-list li a:focus {
+  color: #000;
+  outline: none;
+}
+.vertical-tabs ul.vertical-tabs-list li a:focus strong,
+.vertical-tabs ul.vertical-tabs-list li a:active strong,
+.vertical-tabs ul.vertical-tabs-list li a:hover strong {
+  text-decoration: none;
+}
+.vertical-tabs .summary {
+  font-size: 0.923em;
+}
+
+/* Reset textarea backgrounds in WYSIWYG module text editors */
+body.wysiwygeditor {
+  background-color: #fff;
+  background-image: none;
+}
+
+/* css bits for exposed filter form test and a few other bits to test then tidy - lw 8/10/12 */
+form#views-exposed-form-transition-pse-widget-block-3.views-processed {
+  width:98%;
+  display:block;
+  float: left;
+  clear: both;
+  position:relative;
+  background:#F7F7F8;
+  border-radius:5px;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  -webkit-box-shadow:0 1px 3px rgba(0,0,0,.3);
+  -moz-box-shadow:0 1px 3px rgba(0,0,0,.3);
+  box-shadow:0 1px 3px rgba(0,0,0,.3);
+  padding:5px 7px;
+  margin-bottom:10px;
+  height:100%;
+}
+.views-exposed-widget.views-widget-filter-field_themes_nid,.views-exposed-widget.views-widget-filter-distance {
+  width:45%;
+  float:left;
+  display:inline;
+}
+.form-item label {
+  display:block;
+  font-size:1em;
+  margin-bottom:.2em;
+  margin-left:1px;
+}
+#views-exposed-form-transition-pse-widget-block-3 .views-exposed-form .views-exposed-widgets.clear-block .views-exposed-widget.views-widget-filter-field_themes_nid label {
+  font-size:120%;
+  margin-bottom:5px;
+  margin-top:10px;
+  margin-left:7px;
+}
+#views-exposed-form-transition-pse-widget-block-3 .views-exposed-form .views-exposed-widgets.clear-block .views-exposed-widget.views-widget-filter-distance label {
+  font-size:120%;
+  margin-bottom:5px;
+  margin-top:10px;
+  margin-left:0;
+}
+#edit-distance-postal-code-wrapper.form-item label,#edit-distance-country-wrapper.form-item label,#edit-distance-search-distance-wrapper.form-item label {
+  margin:0;
+  font-size:1em!important;
+}
+select#edit-distance-country.form-select,input#edit-distance-postal-code {
+  width:auto;
+  max-width:75%;
+  display:inline;
+}
+div#edit-distance-search-units-wrapper.form-item {
+  margin:2em 0 0;
+  width:45%;
+  float:left;
+  display:inline;
+  margin-right:4%;
+}
+#edit-distance-search-distance-wrapper {
+  float:left;
+  display:inline;
+  width:18%;
+  margin:0 1% 0 0;
+}
+input#edit-distance-search-distance.form-text {
+  float:left;
+  display:inline;
+  width:75%;
+  margin:0 0 0 1%;
+}
+select#edit-distance-search-units.form-select {
+  float:left;
+  display:inline;
+  width:auto;
+  max-width:78%;
+  margin-top:12px;
+}
+select#edit-field-themes.form-select {
+  width:85%;
+}
+input#edit-submit-transition-pse-widget.form-submit {
+  margin-bottom:7px;
+}
+#edit-distance-country-wrapper.form-item,#edit-distance-postal-code-wrapper.form-item {
+  margin-bottom:0;
+}
+
+.views-exposed-widget.views-submit-button {
+  display: inline-block;
+  width: 98%;
+  padding-left:5px;
+  float:left;}
+
+.promogrey {
+  background:#F7F7F8;
+  border-radius:5px;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  -webkit-box-shadow:0 1px 3px rgba(0,0,0,.3);
+  -moz-box-shadow:0 1px 3px rgba(0,0,0,.3);
+  box-shadow:0 1px 3px rgba(0,0,0,.3);
+  margin-right:15px;
+  margin-left:10px;
+  padding:2px 7px 5px;
+  margin-bottom:10px;
+}
+.promogrey h2 {
+  margin-top: 5px;
+}
+
+/* @end */
+
+
+/*--- QUOTES ---*/
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none;}
+blockquote, q, cite {font-style: italic;}
+blockquote {padding-left: 1.5em; border-left: 3px solid #ccc;}
+blockquote > p {padding: 0;}
+
+/*--- LISTS ---*/
+ul, ol {list-style-position: inside; padding: 0;}
+li ul, li ol {margin: 0 1.5em;}
+dl dd {margin-left: 1.5em;}
+dt {font-family:Futura, "Century Gothic", AppleGothic, sans-serif;}
+
+/*--- HYPERLINKS ---*/
+a {text-decoration: none; color:#027583}
+a:hover {text-decoration: underline;}
+a:focus {outline: thin dotted;}
+a:hover, a:active {outline: none;} /*--- Better CSS Outline Suppression ---*/
+
+/*--- MEDIA ---*/
+figure {margin: 0}
+img, object, embed, video {max-width: 100%;     _width: 100%} /*--- Fluid images ---*/
+img {border: 0; -ms-interpolation-mode: bicubic}
+img.float-right {float: right;margin:5px 0px 10px 10px}
+img.float-left {float: left;margin:5px 10px 10px 0px}
+ /*--- Improve IE's resizing of images ---*/
+svg:not(:root) {overflow: hidden} /*--- Correct IE9 overflow ---*/
+
+/*--- ABBREVIATION ---*/
+abbr[title], dfn[title] {border-bottom: 1px dotted #333; cursor: help}
+
+/*--- MARKED/INSERTED/DELETED AND SELECTED TEXT ---*/
+ins, mark {text-decoration: none}
+mark {background: #027583}
+ins {background: #008b98}
+del {text-decoration: line-through}
+::-moz-selection {background: #027583; color: #fff; text-shadow: none} /*--- selected text ---*/
+::selection {background: #027583; color: #fff; text-shadow: none} /*--- selected text ---*/
+
+/*--- OTHERS ---*/
+strong, b, dt { font-weight: bold}
+dfn {font-style: italic}
+var, address {font-style: normal}
+sub, sup {font-size: 75%; line-height: 0; position: relative; vertical-align: baseline} /*--- Position 'sub' and 'sup' without affecting line-height ---*/
+sup {top: -0.5em} /*--- Move superscripted text up ---*/
+sub {bottom: -0.25em} /*--- Move subscripted text down ---*/
+span.amp{font-family:Adobe Caslon Pro,Baskerville,"Goudy Old Style","Palatino","Palatino Linotype","Book Antiqua",Georgia,"Times New Roman",Times,serif;font-style:italic;font-size:110%;line-height:0;position:relative;vertical-align:baseline} /*--- Best available ampersand ---*/
+
+
+/*--- PAGERS AND QUICKTABS ---*/
+ul.quicktabs_tabs{border-collapse:collapse;height:auto;line-height:normal;list-style:none outside none;margin:0;padding:0;white-space:normal;}ul.primary li,#content ul.quicktabs_tabs li{display:block;float:left;background:none;padding:0;margin:0;}#content ul.quicktabs_tabs li{border-bottom:none;bottom:-2px;min-height:25px;position:relative;}
+
+#content ul.quicktabs_tabs{border-bottom:medium none;padding-bottom:11px;min-height:25px;border-bottom:none;}
+#content ul.quicktabs_tabs li a:link,#content ul.quicktabs_tabs li a:visited,#content ul.quicktabs_tabs li a:hover,#content ul.quicktabs_tabs li a:focus,#content ul.quicktabs_tabs li a:active{float:left;margin-left:.5em;border:2px solid #ccc;padding: 0.25em 0.75em;font-weight:bold;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-o-user-select:none;user-select:none;cursor:pointer;-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;-o-border-top-left-radius:3px;-ms-border-top-left-radius:3px;-khtml-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;-o-border-top-right-radius:3px;-ms-border-top-right-radius:3px;-khtml-border-top-right-radius:3px;border-top-right-radius:3px;background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #eeeeee));background-image:-webkit-linear-gradient(#ffffff,#eeeeee 100%);background-image:-moz-linear-gradient(#ffffff,#eeeeee 100%);background-image:-o-linear-gradient(#ffffff,#eeeeee 100%);background-image:-ms-linear-gradient(#ffffff,#eeeeee 100%);background-image:linear-gradient(#ffffff,#eeeeee 100%);text-shadow:#fff 1px 1px 0}
+
+#content ul.quicktabs_tabs li a:hover,#content ul.quicktabs_tabs li a:focus,#content ul.quicktabs_tabs li.active a:link,#content ul.quicktabs_tabs li.active a:visited,#content ul.quicktabs_tabs li.active a:hover,#content ul.quicktabs_tabs li.active a:focus,#content ul.quicktabs_tabs li.active a:active,.node-type-county-landing ul.primary li:first-child a{background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f8f8f8));background-image:-webkit-linear-gradient(#ffffff,#f8f8f8 100%);background-image:-moz-linear-gradient(#ffffff,#f8f8f8 100%);background-image:-o-linear-gradient(#ffffff,#f8f8f8 100%);background-image:-ms-linear-gradient(#ffffff,#f8f8f8 100%);background-image:linear-gradient(#ffffff,#f8f8f8 100%);
+}
+
+.item-list .pager li {
+        margin-left: 0;margin-right: 1px;padding:0em;}
+        .item-list .pager{position:relative;margin:0;padding:0;font-size:10px;text-align:left;}.pager li a{display:inline-block;}.pager li.pager-ellipsis,.pager li.pager-current,.pager li a{padding:1px 8px;text-decoration:none;}.pager li.pager-current{padding:1px 8px;font-weight:bold;color: #777;}.pager li.pager-first a,.pager li.pager-previous a,.pager li.pager-next a,.pager li.pager-last a{width:50px;text-align:center;padding:1px 0;}.pager li.pager-next{position:absolute;top:0;right:50px;}.pager li.pager-last,.pager li.pager-next.last{position:absolute;top:0;right:0;border-right:0;}.pager li.pager-ellipsis,.pager li.pager-current,.pager li a{color:#1a1a1a;}.pager li{color:#333;font:bold 12px/1.2 Arial,sans-serif;outline:0;}.pager li.pager-current{outline:0;border-right: 0;
+}.pager li.pager-next{}.pager li a{background:#ddd;background:-webkit-gradient(linear,left top,left bottom,color-stop(0,#fff),color-stop(1,#ddd));background:-moz-linear-gradient(top center,#fff 0%,#ddd 100%);cursor:pointer;}.pager li a:hover{background:#FFF;color:#454545;}.pager{background:#ebebeb;border:1px solid;border-color:#ddd #bbb #ccc;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;}.pager li.first,.pager li.first a,.pager li.first a:hover{border-radius:5px 0 0 5px;-moz-border-radius:5px 0 0 5px;-webkit-border-radius:5px 0 0 5px;}.pager li.pager-last,.pager li.pager-last a,.pager li.pager-last a:hover{border-radius:0 5px 5px 0;-moz-border-radius:0 5px 5px 0;-webkit-border-radius:0 5px 5px 0;}
+
+.item-list ul li.views-row{border-bottom:1px solid #c4c4c4;padding-bottom:10px;padding-top: 5px;list-style: none;margin-left: 0;}
+.headwrap{position:relative;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;background:#f6f6f6;background:-webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eeeeee));background:-webkit-linear-gradient(#f6f6f6, #eeeeee);background:-moz-linear-gradient(center top, #f6f6f6 0%, #eeeeee 100%);background:-moz-gradient(center top, #f6f6f6 0%, #eeeeee 100%);box-shadow:0 1px 2px 0 rgba(0, 0, 0, 0.25);-webkit-box-shadow:0 1px 2px 0 rgba(0, 0, 0, 0.25);-moz-box-shadow:0 1px 2px 0 rgba(0, 0, 0, 0.25);display: block;
+        padding: .55em .55em .25em;
+}
+
+/* @group System Messages */
+div.messages {
+  background: #fff url("../images/bg-shade-white-lrg.png") repeat-x 0 100%;
+  border: 1px solid #ddd;
+  margin: 1em 0;
+  padding: 1em 1em 2em 1em;
+  -webkit-border-radius: 0.333em;
+  -moz-border-radius: 0.333em;
+  border-radius: 0.333em;
+}
+div.warning {
+  margin: 1em 0;
+  padding: 1em 1em 2em 1em;
+}
+.messages .inner {
+  padding-left: 4em;
+}
+.messages .icon {
+  background: url("../images/sprites-32.png") no-repeat 0 0;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+}
+.warning .icon {background-position: -182px -1270px;}
+.error .icon {background-position: -364px -898px;}
+.status .icon {background-position: 0 -960px;}
+
+div.help {
+  margin: 1em 0;
+  padding: 1em 0;
+}
+div.help div.help {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+div.password-description {
+  border: solid 1px #ddd;
+  padding: 0.5em 1em 1.25em 4em;
+  -webkit-border-radius: 0.333em;
+  -moz-border-radius: 0.333em;
+  border-radius: 0.333em;
+  font-size: 0.9em;
+  margin: -2em 0 1em 0;
+}
+/* @end */
+
+/*
+ * CSS Styles that are needed by jScrollPane for it to operate nicely within the iframe
+ */
+
+#full-page-container {
+        height: 100%;width: 100%;
+overflow: auto;}
+html
+{
+        overflow: auto;
+}
+.scroll-pane
+{
+        width: 100%;
+        overflow: auto;
+}
+.jspContainer
+{
+        overflow: hidden;
+        position: relative;
+}
+
+.jspPane
+{
+        position: absolute;
+}
+
+.jspVerticalBar
+{
+        position: absolute;
+        top: 0;
+        right:0;
+        width: 16px;
+        height: 100%;
+        background: #C0DCE0;
+}
+
+.jspHorizontalBar
+{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 16px;
+        background: #C0DCE0;
+}
+
+.jspVerticalBar *,
+.jspHorizontalBar *
+{
+        margin: 0;
+        padding: 0;
+}
+
+.jspCap
+{
+        display: none;
+}
+
+.jspHorizontalBar .jspCap
+{
+        float: left;
+}
+
+.jspTrack
+{
+        background: #C0DCE0;
+        position: relative;
+}
+
+.jspDrag
+{
+        background: #81BBC2;
+        position: relative;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+}
+
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag
+{
+        float: left;
+        height: 100%;
+}
+
+.jspArrow
+{
+        background: #50506d;
+        text-indent: -20000px;
+        display: block;
+        cursor: pointer;
+}
+
+.jspArrow.jspDisabled
+{
+        cursor: default;
+        background: #80808d;
+}
+
+.jspVerticalBar .jspArrow
+{
+        height: 16px;
+}
+
+.jspHorizontalBar .jspArrow
+{
+        width: 16px;
+        float: left;
+        height: 100%;
+}
+
+.jspVerticalBar .jspArrow:focus
+{
+        outline: none;
+}
+
+.jspCorner
+{
+        background: #eeeef4;
+        float: left;
+        height: 100%;
+}
+
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner
+{
+        margin: 0 -3px 0 0;
+}
+
+/*---- Progress bar ----*/
+
+
+#progress{
+        list-style:none;
+        background:#4298A2;
+        float:left;
+        margin-bottom:20px;
+        counter-reset:step;
+box-shadow:0 1px 2px 0 rgba(0, 0, 0, 0.25);-webkit-box-shadow:0 1px 2px 0 rgba(0, 0, 0, 0.25);-moz-box-shadow:0 1px 2px 0 rgba(0, 0, 0, 0.25);}
+#progress li{
+        float:left;
+        font-size:0.875em;
+        font-style:italic;
+border-right: 1px solid #fff;}
+
+#progress li.last {
+        border-right: none;
+}
+#progress{
+        -moz-border-radius:5px;
+        -webkit-border-radius:5px;
+        border-radius:5px;
+}
+#progress a{
+        display:block;
+        text-decoration:none;
+        color:#fff;
+        text-shadow:1px 1px 1px rgba(0,0,0,0.25);
+        position:relative;
+        -moz-border-radius:5px 0 0 5px;
+        -webkit-border-radius:5px 0 0 5px;
+        border-radius:5px 0 0 5px;
+cursor: default;
+        padding: 10px 15px 10px 30px;
+}
+
+#progress .current {
+        background: #81BBC2;
+}
+#progress span{
+        font-size:1em;
+        font-weight:bold;
+        display:block;
+        font-style:normal;
+}
+#progress strong{
+        font-weight:normal
+}
+#progress a:hover{
+        text-decoration:none;
+}
+#progress a:hover span{
+        text-decoration:none;
+}
+
+#progress li a:before{
+        counter-increment:step;
+        content:counter(step);
+        text-align:center;
+        font-weight:bold;
+        position:absolute;
+        top:50%;
+        left:5px;
+        margin-top:-8px;
+        padding:2px 6px;
+        background:rgba(2,99,111,0.25);
+        -moz-border-radius:20px;
+        -webkit-border-radius:20px;
+        border-radius:20px;
+}
+#progress .fin-step a{
+        -moz-border-radius:5px;
+        -webkit-border-radius:5px;
+        border-radius:5px;
+}
+
+
+
+img.logos { float: right;width: 285px;
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+}
+
+.tab.first.inactive, .tab.middle.inactive, .tab.last.inactive {
+    visibility: hidden;
+    display:none}
+.tab.first.active, tab.middle.active, .tab.last.active {
+    visibility: visible;
+    display:block;}
+
+
+/*--- MICRO CLEARFIX HACK ---*/
+.cf:before, .cf:after {content:"";display:table} /*--- For modern browsers ---*/
+.cf:after {clear:both}
+.cf {zoom:1} /*--- For IE 6/7 (trigger hasLayout) ---*/
+
+/*--- DEFAULT MOBILE STYLE ---*/
+body {width: 100%; height: 100%;margin: 0 auto} /*--- Center page without wrapper ---*/
+/*--- column grid ---*/
+.g1,.g2,.g3{display:block; position: relative; margin-left: 1%; margin-right: 1%}
+/*--- 1 column grid ---*/
+.g1,.g2,.g3{width:98.0%}
+
+
+/*--- @media Queries
+
+FOLDING FLUID GRID
+< 767px                 - 1-Column Fluid Grid
+768px - 1023px  - 2-Column Fluid Grid
+> 1024px                        - 3-Column Fluid Grid
+Change widths as necessary
+------------------------------------------- ---*/
+
+/*--- MOBILE PORTRAIT ---*/
+@media only screen and (min-width: 320px) {
+        body {
+
+        }
+.helper{
+margin-right:40px;
+}
+a.tooltip span {
+                        left: -4em;
+                        width: 150px;
+                        }
+#progress {
+        margin-bottom: 0.55em;
+
+}
+img.logos {
+        width: 146px;}
+        }
+
+
+/*--- MOBILE LANDSCAPE ---*/
+@media only screen and (min-width: 480px) {
+        body {
+}
+
+}
+/*--- SMALL TABLET ---*/
+@media only screen and (min-width: 600px) {
+        body {
+
+        }
+img.logos {
+        width: 200px;}
+        }
+
+/*--- TABLET/NETBOOK ---*/
+@media only screen and (min-width: 768px) {
+        body {
+
+        }
+
+        /*--- COLUMN GRID ---*/
+        .g1,.g2,.g3 {display:inline; float: left}
+
+        /*--- 2 COLUMN GRID ---*/
+        .g1 {width:48.0%}
+        .g2 {width:48.0%}
+        .g3 {width:98.0%}
+img.logos {
+        width: 224px;}
+        }
+
+/*--- LANDSCAPE TABLET/NETBOOK/LAPTOP ---*/
+@media only screen and (min-width: 1024px) {
+        body {
+
+        }
+
+        /*--- 3 COLUMN GRID ---*/
+        .g1 {width:31.333%}
+        .g2 {width:64.667%;}
+        .g3 {width:98.0%}
+
+.helper{
+margin-right:150px;
+}
+a.tooltip span {
+                        left: 0.5em;
+                        width: 200px;
+                        }
+
+
+                        }
+
+@media only screen and (min-width: 1280px) {
+/*--- DESKTOP ---*/
+                body {
+
+        }
+}
+
+/*--- WIDESCREEN ---*/
+/*--- Increased body size for legibility ---*/
+@media only screen and (min-width: 1400px) {
+        body {font-size:116.75%;
+        /*max-width:1440px} /*--- 18.5px / 28px ---*/
+}
+
+
+/*--- PRINT ---*/
+@media print {
+  * {background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important} /*--- Black prints faster and much much cheaper for users ---*/
+  a, a:visited {color: #444 !important; text-decoration: underline}
+  a[href]:after {content: " (" attr(href) ")"}
+  abbr[title]:after {content: " (" attr(title) ")"}
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {content: ""}  /*--- Don't print links for images, javascript or internal links ---*/
+  pre, blockquote {border: 1px solid #999; page-break-inside: avoid; }
+  thead {display: table-header-group; } /*--- Repeat header row at top of each printed page ---*/
+  tr, img {page-break-inside: avoid; }
+  img {max-width: 100% !important; }
+  @page {margin: 0.5cm}
+  p, h2, h3 {orphans: 3; widows: 3}
+  h2, h3{page-break-after: avoid}
+}
+
+/*--- Drupal Styles ---*/
+body.admin-menu {
+    margin-top: 40px !important;
+}
+h2#site_slogan {
+  font-size: 1.3125em;
+  line-height: 1.14286em;
+  margin: 0 0 1.14286em;
+}
+
+img#logo {
+  margin: 0;
+}
+
+.views-admin-links {
+    font-size: 0.875em;
+    margin-right: 1em;
+    margin-top: 1em;
+}
+
+.views-admin-links ul {
+    margin: 0;
+    padding: 0;
+  display:inline;
+  }
+
+.views-admin-links li {
+    margin: 0;
+    padding: 0 0 2px 0;
+}
+
+.views-admin-links li a {
+    padding: 0;
+    margin: 0;
+}
+

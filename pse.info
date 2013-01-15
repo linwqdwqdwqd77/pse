@@ -1,0 +1,26 @@
+name = pse
+description = PSE theme for widgets
+core = 6.x
+version = VERSION
+engine = phptemplate
+stylesheets[all][] = css/style.css
+stylesheets[print][] = print.css
+
+scripts[] = js/respond.min.js
+scripts[] = js/jquery.uniform.min.js
+scripts[] = js/preloadCssImages.jQuery_v5.js
+scripts[] = js/jquery.jscrollpane.min.js
+scripts[] = js/jquery.mousewheel.js
+scripts[] = js/pse.js
+
+regions[content_top] = Content Top
+
+regions[upper_right] = Upper right
+regions[col1] = col1
+regions[col2] = col2
+regions[col3] = col3
+regions[feature1] = feature 1
+regions[feature2] = feature 2
+regions[content_bottom] = Content Bottom
+
+
