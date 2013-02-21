@@ -29,10 +29,10 @@ function phptemplate_preprocess_page(&$vars) {
   // 'good' css:
   $good_css = array(
     'modules/system/system.css' => 1,
-    'sites/all/modules/cck/modules/fieldgroup/fieldgroup.css' => 1,
-    'sites/all/modules/mollom/mollom.css' => 1,
-    'sites/all/modules/wysiwyg/editors/css/tinymce-3.css' => 1, // should be hidden except in entry widget really
-    'sites/all/modules/quicktabs/css/quicktabs.css' => 1,
+    'sites/all/modules/contrib/cck/modules/fieldgroup/fieldgroup.css' => 1,
+    'sites/all/modules/contrib/mollom/mollom.css' => 1,
+    'sites/all/modules/contrib/wysiwyg/editors/css/tinymce-3.css' => 1, // should be hidden except in entry widget really
+    'sites/all/modules/contrib/quicktabs/css/quicktabs.css' => 1,
   );
   // get styles re-rendered with only above and this theme's css
   $vars['css']['all']['module'] = $good_css;
