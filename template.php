@@ -26,13 +26,19 @@ function phptemplate_preprocess_page(&$vars) {
 
   // JK have only CSS required for widget
   $vars['css']['all']['module'] = array();
+
+  // get modules dir based on path to 'Token' module, but assume Drupal standard
+  $modules_dir = 'sites/all/modules/contrib';
+  if (module_exists('token')) {
+    $modules_dir = str_replace('/token', '', drupal_get_path('module', 'token'));
+  }
   // 'good' css:
   $good_css = array(
     'modules/system/system.css' => 1,
-    'sites/all/modules/contrib/cck/modules/fieldgroup/fieldgroup.css' => 1,
-    'sites/all/modules/contrib/mollom/mollom.css' => 1,
-    'sites/all/modules/contrib/wysiwyg/editors/css/tinymce-3.css' => 1, // should be hidden except in entry widget really
-    'sites/all/modules/contrib/quicktabs/css/quicktabs.css' => 1,
+    $modules_dir . '/cck/modules/fieldgroup/fieldgroup.css' => 1,
+    $modules_dir . '/mollom/mollom.css' => 1,
+    $modules_dir . '/wysiwyg/editors/css/tinymce-3.css' => 1, // should be hidden except in entry widget really
+    $modules_dir . '/quicktabs/css/quicktabs.css' => 1,
   );
   // get styles re-rendered with only above and this theme's css
   $vars['css']['all']['module'] = $good_css;
