@@ -1,5 +1,5 @@
 /*--- BASE ---*/
-html {height: 100%; font-size: 85%; overflow-y: scroll; -webkit-text-size-adjust: 100%} /*--- Force scrollbar in non-IE and Remove iOS text size adjust without disabling user zoom ---*/
+html {height: 100%; font-size: 85%; overflow-y: hidden; -webkit-text-size-adjust: 100%} /*--- Force scrollbar in non-IE and Remove iOS text size adjust without disabling user zoom ---*/
 body {margin: 0; min-height: 100%; -webkit-font-smoothing:antialiased; font-smoothing:antialiased; text-rendering:optimizeLegibility; } /*--- Improve default text rendering, handling of kerning pairs and ligatures ---*/
 
 /*--- HTML5 DECLARATIONS ---*/
